@@ -1,31 +1,21 @@
-//
-// Created by Dylz on 18/12/2022.
-//
 #include "raycaster.h"
 
 using namespace raycaster;
 
-void Raycaster::createWindow()
-{
+void Raycaster::createWindow() {
     this->mSdlWindow = nullptr;
 
     this->mSdlSurface = nullptr;
 
-    if (SDL_Init(SDL_INIT_VIDEO) < 0)
-    {
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
-    }
-    else
-    {
+    } else {
         this->mSdlWindow = SDL_CreateWindow("Raycasting", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-                                           SCREEN_WIDTH,
-                                           SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-        if (this->mSdlWindow == nullptr)
-        {
+                                            SCREEN_WIDTH,
+                                            SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+        if (this->mSdlWindow == nullptr) {
             printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
-        }
-        else
-        {
+        } else {
             this->mSdlSurface = SDL_GetWindowSurface(this->mSdlWindow);
 
             SDL_FillRect(this->mSdlSurface, nullptr, SDL_MapRGB(this->mSdlSurface->format, 0x00, 0x00, 0x00));
@@ -37,14 +27,11 @@ void Raycaster::createWindow()
     }
 }
 
-void Raycaster::waitQuit()
-{
+void Raycaster::waitQuit() {
     SDL_Event e;
     bool quit = false;
-    while (!quit)
-    {
-        while (SDL_PollEvent(&e))
-        {
+    while (!quit) {
+        while (SDL_PollEvent(&e)) {
             if (e.type == SDL_QUIT)
                 quit = true;
         }
@@ -56,8 +43,7 @@ void Raycaster::waitQuit()
     SDL_Quit();
 }
 
-void Raycaster::drawRectangle()
-{
+void Raycaster::drawRectangle() {
     SDL_Rect rect;
     rect.x = 200;
     rect.y = 200;

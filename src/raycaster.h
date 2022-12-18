@@ -6,23 +6,26 @@
 #include <SDL2/SDL_rect.h>
 #include <iostream>
 
-namespace raycaster
-{
+namespace raycaster {
     const int SCREEN_WIDTH = 640;
     const int SCREEN_HEIGHT = 480;
 
-    class Raycaster
-    {
+    class Raycaster {
     private:
         SDL_Window *mSdlWindow;
         SDL_Surface *mSdlSurface;
 
     public:
         void createWindow();
+
         void drawRectangle();
+
         void waitQuit();
+
         void update();
+
         SDL_Window *getSdlWindow();
+
         SDL_Surface *getSdlSurface();
     };
 

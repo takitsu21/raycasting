@@ -4,32 +4,31 @@
 #include "raycaster.h"
 
 
-namespace ge
-{
-    class GameController
-    {
+namespace ge {
+    class GameController {
     private:
     public:
 
     };
 
-    enum GameState
-    {
+    enum GameState {
         RUNNING,
         PAUSE,
         STOPPED
     };
 
-    class GameEngine
-    {
+    class GameEngine {
     private:
         // GameController mGameController;
         GameState mGameState;
-        raycaster::Raycaster* mRaycaster;
+        raycaster::Raycaster *mRaycaster;
     public:
         void run();
+
         void render();
+
         void stop();
+
         void processLoop();
     };
 
