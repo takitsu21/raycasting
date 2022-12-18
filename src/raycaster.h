@@ -1,0 +1,8 @@
+//
+// Created by Dylz on 18/12/2022.
+//
+
+#ifndef RAYCASTING_RAYCASTER_H
+#define RAYCASTING_RAYCASTER_H
+
+#endif //RAYCASTING_RAYCASTER_H
