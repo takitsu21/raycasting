@@ -3,8 +3,9 @@
 
 int main(int argc, char *argv[])
 {
-    Raycaster *raycaster = new Raycaster();
+    raycaster::Raycaster raycaster;
+    raycaster.createWindow();
+    raycaster.waitQuit();
 
-    raycaster->createWindow();
     return EXIT_SUCCESS;
 }
