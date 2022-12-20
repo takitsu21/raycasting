@@ -16,7 +16,7 @@ set(common_libraries stdc++ pthread)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMAKE")
-set(SOURCE_FILES main.cpp src/raycaster.cpp src/raycaster.h src/game_engine.h src/game_engine.cpp)
+set(SOURCE_FILES main.cpp include/raycaster.cpp include/raycaster.h include/game_engine.h include/game_engine.cpp include/game.cpp include/game.h)
 
 find_package(SDL2 REQUIRED COMPONENTS SDL2)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

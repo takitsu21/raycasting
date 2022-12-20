@@ -1,10 +1,10 @@
-#include "src/raycaster.h"
+#include "include/raycaster.h"
 #include <cstdlib>
 
 int main(int argc, char *argv[]) {
-    auto *raycaster = new raycaster::Raycaster();
+    auto *raycaster = new Raycaster();
     raycaster->createWindow();
-    raycaster->waitQuit();
+    raycaster->waitEvent();
 
     return EXIT_SUCCESS;
 }

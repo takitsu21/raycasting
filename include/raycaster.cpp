@@ -1,11 +1,9 @@
 #include "raycaster.h"
 
-using namespace raycaster;
-
 void Raycaster::createWindow() {
     this->mSdlWindow = nullptr;
 
-    this->mSdlSurface = nullptr;
+    SDL_Surface *sdlSurface = nullptr;
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
@@ -16,7 +14,7 @@ void Raycaster::createWindow() {
         if (this->mSdlWindow == nullptr) {
             printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
         } else {
-            this->mSdlSurface = SDL_GetWindowSurface(this->mSdlWindow);
+            sdlSurface = SDL_GetWindowSurface(this->mSdlWindow);
 
             SDL_FillRect(this->mSdlSurface, nullptr, SDL_MapRGB(this->mSdlSurface->format, 0x00, 0x00, 0x00));
 
@@ -27,13 +25,27 @@ void Raycaster::createWindow() {
     }
 }
 
-void Raycaster::waitQuit() {
+void Raycaster::waitEvent() {
     SDL_Event e;
     bool quit = false;
     while (!quit) {
         while (SDL_PollEvent(&e)) {
-            if (e.type == SDL_QUIT)
-                quit = true;
+            switch (e.type) {
+                case SDL_KEYDOWN:
+                    switch (e.key.keysym.sym) {
+                        case SDLK_ESCAPE:
+                            quit = true;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case SDL_QUIT:
+                    quit = true;
+                    break;
+                default:
+                    break;
+            }
         }
     }
     // Destroy window
